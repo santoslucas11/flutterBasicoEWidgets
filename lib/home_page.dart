@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 BlueButton("Snack", onPressed: () => _onClickSnack(context)),
-                BlueButton("Dialog", onPressed: _onClickDialog()),
+                BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
                 BlueButton("Toast", onPressed: _onClickToast()),
               ],
             )
@@ -82,7 +82,36 @@ class HomePage extends StatelessWidget {
 
   _onClickToast() {}
 
-  _onClickDialog() {}
+  _onClickDialog(context) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: AlertDialog(
+            title: Text("Teste Alert Dialog"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Cancelar"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  print("cancelado");
+                },
+              ),
+              FlatButton(
+                child: Text("OK"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  print("click");
+                },
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   _onClickSnack(context) {
     Scaffold.of(context).showSnackBar(SnackBar(
@@ -108,14 +137,12 @@ class HomePage extends StatelessWidget {
 
   _text() {
     return Text(
-      "Hello World",
+      "Doguinhos",
       style: TextStyle(
           color: Colors.blue,
           fontSize: 30,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
-          decoration: TextDecoration.underline,
-          decorationColor: Colors.black,
           decorationStyle: TextDecorationStyle.wavy),
     );
   }

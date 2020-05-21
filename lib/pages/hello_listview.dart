@@ -23,6 +23,7 @@ class _HelloListViewState extends State<HelloListView> {
     return Scaffold(
       appBar: AppBar(
         title: Text("List View"),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.list),
