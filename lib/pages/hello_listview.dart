@@ -28,7 +28,7 @@ class HelloListView extends StatelessWidget {
     ];
 
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
       itemCount: dogs.length,
       itemBuilder: (context, index) {
         Dog dog = dogs[index];
