@@ -20,7 +20,7 @@ class HelloListView extends StatelessWidget {
 
   _body() {
     List<Dog> dogs = [
-      Dog("Jacku Russel", "assets/images/dog1.png"),
+      Dog("Jack Russel", "assets/images/dog1.png"),
       Dog("Labrador", "assets/images/dog2.png"),
       Dog("Pug", "assets/images/dog3.png"),
       Dog("Rottweiler", "assets/images/dog4.png"),
@@ -44,7 +44,7 @@ class HelloListView extends StatelessWidget {
                 padding: EdgeInsets.all(4),
                 decoration: BoxDecoration(
                   color: Colors.black45,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(15),
                   ),
                 child: Text(
                   dog.nome,
