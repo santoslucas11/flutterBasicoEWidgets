@@ -1,4 +1,7 @@
+import 'package:aula01/utils/nav.dart';
 import 'package:flutter/material.dart';
+
+import 'dog_page.dart';
 
 class Dog {
   String nome;
@@ -21,19 +24,24 @@ class _HelloListViewState extends State<HelloListView> {
       appBar: AppBar(
         title: Text("List View"),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.list),onPressed: () {
+          IconButton(
+            icon: Icon(Icons.list),
+            onPressed: () {
               print("Lista");
               setState(() {
                 _gridView = false;
               });
-            },),
+            },
+          ),
           IconButton(
-            icon: Icon(Icons.grid_on),onPressed: () {
+            icon: Icon(Icons.grid_on),
+            onPressed: () {
               print("Grid");
               setState(() {
                 _gridView = true;
               });
-            },),
+            },
+          ),
         ],
       ),
       body: _body(),
@@ -72,26 +80,31 @@ class _HelloListViewState extends State<HelloListView> {
   _itemView(List<Dog> dogs, int index) {
     Dog dog = dogs[index];
 
-    return Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        _img(dog.foto),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Text(
-              dog.nome,
-              style: TextStyle(fontSize: 25, color: Colors.white),
+    return GestureDetector(
+      onTap: (){
+        push(context, DogPage(dog));
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _img(dog.foto),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.all(8),
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Text(
+                dog.nome,
+                style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
