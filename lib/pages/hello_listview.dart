@@ -13,6 +13,14 @@ class HelloListView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("List View"),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.list), onPressed: (){
+            print("Lista");
+          },),
+          IconButton(icon: Icon(Icons.grid_on), onPressed: (){
+            print("Grid");
+          },)
+        ],
       ),
       body: _body(),
     );
