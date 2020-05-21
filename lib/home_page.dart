@@ -5,6 +5,7 @@ import 'package:aula01/pages/hello_page3.dart';
 import 'package:aula01/utils/nav.dart';
 import 'package:aula01/widgets/blue_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -71,7 +72,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 BlueButton("Snack", onPressed: () => _onClickSnack(context)),
                 BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
-                BlueButton("Toast", onPressed: _onClickToast()),
+                BlueButton("Toast", onPressed: () => _onClickToast(context)),
               ],
             )
           ],
@@ -80,7 +81,17 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickToast() {}
+  _onClickToast(context) {
+    Fluttertoast.showToast(
+      msg: "Teste Toast Dialog",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 2,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
 
   _onClickDialog(context) {
     showDialog(
