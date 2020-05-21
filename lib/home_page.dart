@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
           decoration: TextDecoration.underline,
-          decorationColor: Colors.red,
+          decorationColor: Colors.black,
           decorationStyle: TextDecorationStyle.wavy),
     );
   }
