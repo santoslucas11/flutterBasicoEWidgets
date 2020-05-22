@@ -6,6 +6,13 @@ class DrawerList extends StatelessWidget {
     return Drawer( 
       child: ListView(
         children: <Widget>[
+          UserAccountsDrawerHeader(
+            accountName: Text("User Name"),
+            accountEmail: Text("mail@provider.com"),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: AssetImage("assets/images/dog4.png"),
+            ),
+          ),
           ListTile(
             leading: Icon(Icons.star),
             title: Text("Favoritos"),
