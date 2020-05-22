@@ -5,6 +5,7 @@ import 'package:aula01/utils/nav.dart';
 import 'package:aula01/widgets/blue_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'drawer_list.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
           _onClickFab();
         },
       ),
-      drawer: Drawer(),
+      drawer: DrawerList(),
     );
   }
 
