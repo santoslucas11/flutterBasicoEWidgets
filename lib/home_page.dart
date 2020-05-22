@@ -10,19 +10,35 @@ import 'drawer_list.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Doguinhos Fofinhos"),
-        centerTitle: true,
+    return DefaultTabController(
+      length: 3,
+          child: Scaffold(
+        appBar: AppBar(
+          title: Text("Doguinhos Fofinhos"),
+          bottom: TabBar(tabs: [
+            Tab(text: "Tab 1",),
+            Tab(text: "Tab 2",),
+            Tab(text: "Tab 3")
+          ],),
+          centerTitle: true,
+        ),
+        body: TabBarView(children: [
+          _body(context),
+          Container(
+            color: Colors.green,
+          ),
+          Container(
+            color: Colors.yellow,
+          )
+        ]),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            _onClickFab();
+          },
+        ),
+        drawer: DrawerList(),
       ),
-      body: _body(context),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          _onClickFab();
-        },
-      ),
-      drawer: DrawerList(),
     );
   }
 
