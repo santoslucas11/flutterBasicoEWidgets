@@ -15,15 +15,32 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: _body(context),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              _onClickFab();
+            },
+          ),
+          SizedBox(width: 8),
+        ],
+      ),
     );
+  }
+
+  _onClickFab() {
+    print("Add");
   }
 
   _body(context) {
     return Container(
       child: Container(
+          padding: EdgeInsets.only(top: 16),
           color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               _text(),
               _pageView(),
